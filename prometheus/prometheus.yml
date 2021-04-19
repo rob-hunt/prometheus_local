@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  # scrape metrics from local rails apps (requires running `bundle exec prometheus_exporter`)
+  - job_name: "local_rails_apps"
+
+    # Override global settings
+    scrape_interval: 5s
+
+    static_configs:
+      - targets: ["host.docker.internal:9394"]
+
+  # prometheus scrapes itself, so there are always some metrics
+  - job_name: "prometheus"
+
+    static_configs:
+      - targets: ["localhost:9090"]
+
+
+
