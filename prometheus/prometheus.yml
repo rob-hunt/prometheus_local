@@ -9,7 +9,7 @@ scrape_configs:
     scrape_interval: 5s
 
     static_configs:
-      - targets: ["host.docker.internal:9394"]
+      - targets: ["prometheus_exporter:9394"]
 
   # prometheus scrapes itself, so there are always some metrics
   - job_name: "prometheus"

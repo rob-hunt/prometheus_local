@@ -2,6 +2,8 @@ version: '3'
 
 networks:
   grafana:
+  prometheus:
+  prometheus_exporter:
 
 volumes:
   grafana-storage: 
@@ -18,7 +20,8 @@ services:
     ports:
       - 9090:9090
     networks:
-      - grafana  
+      - grafana
+      - prometheus_exporter
 
   grafana:
     image: grafana/grafana:7.2.0
@@ -28,3 +31,10 @@ services:
       - grafana
     volumes:
       - grafana-storage:/var/lib/grafana
+  
+  prometheus_exporter:
+    build: ./prometheus_exporter
+    ports:
+      - 9394:9394
+    networks:
+      - prometheus_exporter
