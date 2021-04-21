@@ -1,10 +1,5 @@
 version: '3'
 
-networks:
-  grafana:
-  prometheus:
-  prometheus_exporter:
-
 volumes:
   grafana-storage: 
 
@@ -19,22 +14,15 @@ services:
       - "--storage.tsdb.path=/prometheus"
     ports:
       - 9090:9090
-    networks:
-      - grafana
-      - prometheus_exporter
 
   grafana:
     image: grafana/grafana:7.2.0
     ports:
       - 4000:3000
-    networks:
-      - grafana
     volumes:
       - grafana-storage:/var/lib/grafana
   
   prometheus_exporter:
-    build: ./prometheus_exporter
+    build: ./prometheus_exporter    
     ports:
       - 9394:9394
-    networks:
-      - prometheus_exporter
