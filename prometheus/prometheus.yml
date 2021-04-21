@@ -2,7 +2,7 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  # scrape metrics from local rails apps (requires running `bundle exec prometheus_exporter`)
+  # scrape metrics from local rails apps (requires expects a running instance of prometheus_exporter)
   - job_name: "local_rails_apps"
 
     # Override global settings

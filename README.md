@@ -11,9 +11,6 @@ Docker / docker compose installed locally :
 
 If you're running Docker for Desktop for macOS or Windows, Docker Compose is already included in your installation.
 
-- You must run one copy of the prometheus exporter :
-- `bundle exec prometheus_exporter`
-
 ## Running prometheus / grafana locally : 
 ```
 docker-compose up -d
